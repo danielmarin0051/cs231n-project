@@ -2,7 +2,12 @@ import numpy as np
 
 def relative_error(x, y):
   """ returns relative error """
+  assert x.shape == y.shape
   return np.max(np.abs(x - y) / (np.maximum(1e-8, np.abs(x) + np.abs(y))))
+
+
+def flatten(x):
+    return x.reshape((x.shape[0], -1))
 
 
 def neural_decomposition(Z_decomp, tolerance):
